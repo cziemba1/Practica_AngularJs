@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/style.css" />
+    <script src="lib/script.js"></script>
+  </head>
+
+  <body ng-app="githubViewer">
+    <div ng-controller="MainController">
+      <h1>Github fetcher info</h1>
+      <h1>{{message}}</h1>
+      <div> {{error}} </div>
+      <div> {{user.name}} </div>
+      <img ng-src={{user.avatar_url}}>
+      
+    </div>
+  </body>
+</html>
