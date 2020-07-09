@@ -8,11 +8,43 @@
 
   <body ng-app="githubViewer">
     <div ng-controller="MainController">
-      <h1>Github fetcher info</h1>
       <h1>{{message}}</h1>
+      <p>{{countdown}}<p>
+
+      <form ng-submit="search(username)">
+        <input type="text" placeholder="Ingrese nombre de usuario" ng-model="username"/>
+        <input type="submit" value="Buscar" />
+      </form>
+    <div ng-show="user">
       <div> {{error}} </div>
-      <div> {{user.name}} </div>
+      <div>Username: {{user.name}} </div>
       <img ng-src={{user.avatar_url}}>
+     <div> Order:
+        <select ng-model="repoSortOrder">
+          <option value="+name">Name</option>
+          <option value="+stargazers_count">Stars</option>
+          <option value="+language">Language</option>
+        </select>
+      </div>
+    </div>
+      <table ng-hide="!user">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Stars</th>
+            <th>Language</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
+            <th>{{repo.name}}</th>
+            <th>{{repo.stargazers_count}}</th>
+            <th>{{repo.language}}</th>
+          </tr>
+        </tbody>
+      </table>
+      
+
       
     </div>
   </body>
