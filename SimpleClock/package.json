@@ -1,0 +1,13 @@
+{
+  "name": "@plnkr/starter-angularjs",
+  "version": "1.0.1",
+  "description": "AngularJS starter template",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "angularjs": "^0.0.1"
+  },
+  "plnkr": {
+    "runtime": "system",
+    "useHotReload": false
+  }
+}
